@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Past Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Past Results</h1>
+    {% if past_results %}
+    <ul>
+        {% for result in past_results %}
+        <li>{{ result.home }} vs {{ result.away }}: {{ result.score_home }} - {{ result.score_away }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No past results available.</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>

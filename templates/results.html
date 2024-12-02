@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Prediction Results</h1>
+
+    <h2>All Predictions</h2>
+    <ul>
+        {% for prediction in predictions %}
+        <li>
+            <strong>{{ prediction.username }}</strong>: {{ prediction.team1 }} {{ prediction.predicted_score1 }} - {{ prediction.team2 }} {{ prediction.predicted_score2 }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Enter Actual Results</h2>
+    <form action="/results" method="post">
+        <label for="team1">Team 1:</label><br>
+        <input type="text" name="team1" id="team1" required><br>
+        <label for="team2">Team 2:</label><br>
+        <input type="text" name="team2" id="team2" required><br>
+        <label for="actual_score1">Actual Score (Team 1):</label><br>
+        <input type="number" name="actual_score1" id="actual_score1" required><br>
+        <label for="actual_score2">Actual Score (Team 2):</label><br>
+        <input type="number" name="actual_score2" id="actual_score2" required><br>
+        <button type="submit">Submit Actual Results</button>
+    </form>
+</body>
+</html>

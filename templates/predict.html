@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Predict Match Scores</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Predict Match Scores</h1>
+    <form action="/predict" method="post">
+        <label for="username">Your Name:</label><br>
+        <input type="text" name="username" id="username" required><br><br>
+        <label for="team1">Team 1:</label><br>
+        <input type="text" name="team1" id="team1" required><br>
+        <label for="team2">Team 2:</label><br>
+        <input type="text" name="team2" id="team2" required><br>
+        <label for="score1">Predicted Score (Team 1):</label><br>
+        <input type="number" name="score1" id="score1" required><br>
+        <label for="score2">Predicted Score (Team 2):</label><br>
+        <input type="number" name="score2" id="score2" required><br>
+        <button type="submit" name="submit">Submit</button>
+        <button type="submit" name="finish" formnovalidate>Finish</button> <!-- Finish button -->
+    </form>
+</body>
+</html>

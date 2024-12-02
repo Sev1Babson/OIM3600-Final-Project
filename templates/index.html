@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Soccer Match Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Upcoming Matches</h1>
+    <ul>
+        {% if matches %}
+            {% for match in matches %}
+            <li>
+                {{ match.homeTeam.name }} vs {{ match.awayTeam.name }}
+                - Scheduled for {{ match.utcDate }}
+            </li>
+            {% endfor %}
+        {% else %}
+            <li>No upcoming matches available.</li>
+        {% endif %}
+    </ul>
+    <a href="/predict">Make a Prediction</a>
+</body>
+</html>

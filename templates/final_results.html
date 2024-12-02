@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Final Results</h1>
+
+    <h2>Actual Results</h2>
+    <p><strong>{{ actual_scores.team1 }}</strong>: {{ actual_scores.actual_score1 }} - 
+       <strong>{{ actual_scores.team2 }}</strong>: {{ actual_scores.actual_score2 }}</p>
+
+    <h2>Player Predictions and Accuracy</h2>
+    <ul>
+        {% for prediction in predictions %}
+        <li>
+            <strong>{{ prediction.username }}</strong>: {{ prediction.team1 }} {{ prediction.predicted_score1 }} -
+            {{ prediction.team2 }} {{ prediction.predicted_score2 }}
+            | Accuracy: {{ prediction.accuracy }}%
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Winner</h2>
+    <p>
+        {% set winner = predictions | max(attribute='accuracy') %}
+        <strong>{{ winner.username }}</strong> wins with an accuracy of {{ winner.accuracy }}%!
+    </p>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
